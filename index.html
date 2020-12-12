@@ -1,11 +1,610 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta chartset="UTF-8">
+  <title>Responsive Porfolio landing Page</title>
+  <link rel="stylesheet" type="text/css">
+  <link rel="icon" href="icon3.png">
+  
+  <style>
+    @import url('http://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+    
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', Sans-Serif;
+    }
+    
+    html{
+      scroll-behavior: smooth;
+    }
+    
+    body{
+        	min-height: 1000px;
+       	}
+       	
+    header{
+         	position: fixed;
+         	top: 0;
+         	left: 0;
+        	width: 100%;
+        	display: flex;
+        	justify-content: space-between;
+        	align-items: center;
+         	padding: 40px 100px;
+	        z-index: 1000;
+	        transition: 0.6s;
+					}
+					
+		header.sticky{
+		      padding: 5px 100px;
+		      background: #fff;
+		      border-bottom: 1px solid rgba(0,0,0,.1);
+		      }
+		
+    header #logo{
+				 position: flex;
+	       font-weight: 700;
+				  color: #fff;
+				  text-decoration: none;
+				  font-size: 2em;
+				  text-transform: uppercase;
+				  letter-spacing: 2px;
+				  transition: 0.6s;
+			   	}
+			   	
+		header ul{
+			    position: relative;
+		  	  display: flex;
+		  	  justify-content: center;
+			    align-items: center;
+		  	  }
+		  	  
+		header ul li{
+		      position: relative;
+		      list-style: none;
+	        }
+
+     header ul li a{
+          position: relative;
+          margin: 0 15px;
+          color: #fff;
+          letter-spacing: 2px;
+          font-weight: 300;
+          transition: 0.6s;
+          text-decoration: none;
+          }
+          
+      header.stiky #logo,
+      header.stiky ul li a{
+		    color: #000; !important
+		    background: #fff;
+		  }
+		 
+      .banner{
+          position: relative;
+          width: 100%;
+          min-height: 100vh;
+          background: url(bg.jpg);
+          background-size: cover;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          }
+      .banner h2{
+        color: #fff;
+        font-size: 90px;
+        text-transform: uppercase;
+        text-align: center;
+        
+      }
+      .banner h2 span{
+        color: #4978ff;
+      }
+       
+		  
+		  .sec{
+		    background: #fff;
+		    padding: 100px;
+		    min-height: 100vh;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		  }
+		  .sec .content{
+		    position: relative;
+		    text-align: center;
+		    width: 100%;
+		  }
+		  
+		  .mxw800p{
+		    min-zoom: 800px;
+		    margin: 0 auto;
+		  }
+		  
+		  h3{
+		    font-size: 40px;
+		    font-weight: 200;
+		    margin-bottom: 10px;
+		  }
+		  p{
+		    position: relative;
+		    font-size: 18px;
+		    font-weight: 300;
+		    margin-bottom: 20px;
+		    letter-spacing: 1px;
+		  }
+		  .btn{
+		    position: relative;
+		    display: inline-block;
+		    padding: 10px 30px;
+		    background: #000;
+		    text-decoration: none;
+		    color: #fff;
+		  }
+		.service{
+		  position: relative;
+		  display: grid;
+		  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		  grid-gap: 30px;
+		  max-width: 100%;
+		  margin-top: 40px;
+		}
+	  .service .box{
+	    width: 300px;
+	    margin: 0 auto;
+	    background: #fff;
+	    padding: 20px;
+	    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+	  }
+	  
+	  .service .box .iconBx{
+	    margin-top: 25px;
+	  }
+	  
+	  .service .box .iconBx img{
+	    max-width: 70px;
+	  }
+	  .service.box h2{
+	    font-size: 18px;
+	    margin-bottom: 10px;
+	    text-transform: uppercase;
+	    font-weight: 700;
+	  }
+	  
+	  .stats{
+	    background: #000;
+	    padding: 250px;
+	    margin-top: -250px;
+	  }
+	  
+	  .stats h3,
+	  .stats p{
+	    color: #fff;
+	  }
+	  
+	  .statsBox{
+	    position: relative;
+	    display: grid;
+	    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	    grid-gap: 20px;
+	    max-width: 100%;
+	    margin-top: 40px;
+	  }
+	  
+	  .statsBox h2{
+	    color: #fff;
+	    font-size: 36px;
+	  }
+	  
+	  .statsBox h4{
+	    color: #fff;
+	    font-size: 16px;
+	    font-weight: 500;
+	    text-transform: uppercase;
+	    letter-spacing: 2px;
+	  }
+	  .workBx{
+	    position: relative;
+	    display: grid;
+	    grid-template-rows: repeat(auto-fit, minmax(250px, 1fr));
+	    grid-gap: 30px;
+	    max-width: 100%;
+	    margin-top: 40px;
+	  }
+	  .workBx .brand{
+	    position: relative;
+	    background: #4978ff;
+	    min-height: 300px;
+	    width: 250px;
+	    margin: 0 auto;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	  }
+	 .workBx .brand:hover{
+	   background: #000;
+	 }
+	 .workBx .brand a{
+	   text-decoration: none;
+	   color: rgb(255,255,255,0.4);
+	   text-transform: uppercase;
+	   font-size: 14px;
+	   letter-spacing: 2px;
+	 }
+	 .workBx .brand:hover a{
+	   color: rgb(255,255,255,1);
+	 }
+	 
+	 .teamBx{
+	   position: relative;
+	    display: grid;
+	    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	    grid-gap: 30px;
+	    max-width: 100%;
+	    margin-top: 40px;
+	   }
+	 .teamBx .member{
+	    position: relative;
+	    background: #000;
+	    min-height: 300px;
+	    width: 250px;
+	    margin: 0 auto;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	  }
+	  .teamBx .member .imgBx{
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	  }
+	  
+	  .teamBx .member .imgBx img{
+	   position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    object-fit: cover;
+	  }
+	  
+	  .teamBx .member .details{
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    background: #000;
+	    transition: 0.2s;
+	    opacity: 0;
+	  }
+	  .teamBx .member:hover .details{
+	    opacity: 1;
+	  }
+	  
+	  .teamBx .member .details h2{
+	    color: #fff;
+	    text-transform: uppercase;
+	    font-size: 20px;
+	    letter-spacing: px;
+	  }
+	  .teamBx .member .details h2 span{
+	    display: block;
+	    font-size: 12px;
+	    font-weight: 300;
+	  }
+	  .contact{
+	    background: #000;
+	  }
+	  
+	  .contact h3,
+	  .contact p{
+	    color: #fff;
+	  }
+	  
+	  .contactForm{
+	    position: relative;
+	    max-width: 800px;
+	    margin: 0 auto;
+	    display: flex;
+	  }
+	  
+	  .contactForm form{
+	    width: 100%;
+	  }
+	 
+	  .contactForm .row100{
+	    display: flex;
+	    width: 100%;
+	  }
+	  .contactForm .row100 .inputBx50{
+	    width: 50%;
+	    margin: 0 20px;
+	  }
+	  
+	  .contactForm .row100 .inputBx100{
+	    width: 50%;
+	    margin: 0 20px;
+	  }
+	   .contactForm .row100 input,
+	   .contactForm .row100 textarea{
+	     position: relative;
+	     border: none;
+	     border-bottom: 1px solid #fff;
+	     color: #fff;
+	     background: transparent;
+	     width: 100%;
+	     padding-top: 10px 0;
+	     outline: none;
+	     font-size: 18px;
+	     font-weight: 300;
+	     margin: 20px 0;
+	     resize: none;
+	   }
+	  
+  </style>
+
 </head>
 <body>
-    fanni
+  <header>
+    <a class="header" id="logo">Logo</a>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#service">Service</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </header>
+  <!---- Banner ---->
+  <section class="banner" id="home">
+    <h2>We Make <br><span>Brands</span> Matter</h2>
+  </section>
+  <!---- About --->
+  <section class="sec" id="about">
+    <div class="content">
+      <div class="mxw800p">
+        <h3>Who We Are</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, reprehenderit tempora nihil saepe, consequuntur sunt tempore rerum beatae laborum quis libero inventore doloremque culpa temporibus nostrum, aliquid a velit labore quam perferendis voluptatum sapiente! Ipsum accusamus, cupiditate tempora eaque, eligendi ab ipsam eius neque maxime odit minima hic fugiat, repellendus.</p>
+        <a href="#" class="btn">Read Our Story</a>
+      </div>
+    </div>
+  </section>
+  <!---- Service---->
+  <section class="sec" id="service">
+    <div class="content">
+      <div class="mxw800p">
+        <h3>What We Do</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem consectetur animi ab autem a laudantium aliquam eos earum et possimus Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, doloremque?</p>
+    </div>
+    
+      <div class="box">
+        <div class="iconBx">
+          <img src="icon1.png">
+        </div>
+        <div class="content">
+          <h2>Design</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores voluptatem laudantium, dolor necessitatib</p>
+        </div>
+      </div>
+      <div class="box">
+            <div class="iconBx">
+              <img src="icon2.png">
+            </div>
+            <div class="content">
+              <h2>Development</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae eius voluptate vero ducimus ad beatae quis explicabo</p>
+           </div>
+          </div>
+      <div class="box">
+        <div class="iconBx">
+          <img src="icon3.png">
+        </div>
+        <div class="content">
+          <h2>Branding</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae eius voluptate vero ducimus ad beatae quis explicab</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!---- Stats---->
+  <section class="sec stats">
+    <div class="content">
+      <div class="mxw800p">
+        <h3>Our Achievements</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, reprehenderit tempora nihil saepe, consequuntur sunt tempore rerum beatae laborum quis libero inventore doloremque culpa temporibus nostru</p>
+        <div class="statsBox">
+          <div class="box">
+            <h2>1200+</h2>
+            <h4>Projects</h4>
+          </div>
+        </div>
+        
+        <div class="statsBox">
+          <div class="box">
+            <h2>800+</h2>
+            <h4>Happy Clients</h4>
+          </div>
+        </div>
+        
+        <div class="statsBox">
+          <div class="box">
+            <h2>150+</h2>
+            <h4>Countries</h4>
+          </div>
+        </div>
+        
+        <div class="statsBox">
+          <div class="box">
+            <h2>50+</h2>
+            <h4>Awards</h4>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  <!---- Portfolio---->
+  <section class="sec work" id="portfolio">
+    <div class="content">
+      <div class="mxw800p">
+        <h3>Recent Work</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, reprehenderit tempora nihil saepe, consequuntur sunt tempore rerum beatae laborum quis libero inventore doloremque culpa temporibus nostrum, aliquid a velit labore quam per</p>
+      </div>
+      <div  class="workBx">
+        <div class="brand">
+          <a href="#"><h2>Brands Name</h2></a>
+        </div>
+      </div>
+      <div  class="workBx">
+        <div class="brand">
+          <a href="#"><h2>Brands Name</h2></a>
+        </div>
+      </div>
+      <div  class="workBx">
+        <div class="brand">
+          <a href="#"><h2>Brands Name</h2></a>
+        </div>
+      </div>
+      <div  class="workBx">
+        <div class="brand">
+          <a href="#"><h2>Brands Name</h2></a>
+        </div>
+      </div>
+      <div  class="workBx">
+        <div class="brand">
+          <a href="#"><h2>Brands Name</h2></a>
+        </div>
+      </div>
+      <div  class="workBx">
+        <div class="brand">
+          <a href="#"><h2>Brands Name</h2></a>
+        </div>
+      </div>
+      <div  class="workBx">
+        <div class="brand">
+          <a href="#"><h2>Brands Name</h2></a>
+        </div>
+      </div>
+      <div  class="workBx">
+        <div class="brand">
+          <a href="#"><h2>Brands Name</h2></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--- Team----->
+  <section class="sec" id="team">
+    <div class="content">
+      <div class="mxw800p">
+        <h3>Meet Our Expert</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, reprehenderit tempora nihil saepe, consequuntur sunt tempore rerum beatae laborum quis libero inventore doloremque culpa temporibus nostrum, aliquid a velit</p>
+      </div>
+      <div class="teamBx">
+        
+        <div class="member">
+          <div class="imgBx">
+            <img src="1.jpg" alt="">
+          </div>
+          <div class="details">
+            <div>
+              <h2>Jhon Doe<br><span>Creative Director</span></h2>
+            </div>
+          </div>
+        </div>
+        <div class="member">
+          <div class="imgBx">
+            <img src="2.jpg" alt="">
+          </div>
+          <div class="details">
+            <div>
+              <h2>Jhon Doe<br><span>Creative Director</span></h2>
+            </div>
+          </div>
+        </div>
+        <div class="member">
+          <div class="imgBx">
+            <img src="3.jpg" alt="">
+          </div>
+          <div class="details">
+            <div>
+              <h2>Jhon Doe<br><span>Creative Director</span></h2>
+            </div>
+          </div>
+        </div>
+        <div class="member">
+          <div class="imgBx">
+            <img src="4.jpg" alt="">
+          </div>
+          <div class="details">
+            <div>
+              <h2>Jhon Doe<br><span>Creative Director</span></h2>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </section>
+  <!---- Contact---->
+  <section class="sec contact" id="contact">
+    <div class="content">
+      <div class="mxw800p">
+        <h3>Send Us A Massage</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, repreht</p>
+      </div>
+      <div class="contactForm">
+        <form>
+          <div class="row100">
+            <div class="inputBx50">
+              <input type="text" name="" placeholder="Full Name">
+            </div>
+            <div class="inputBx50">
+              <input type="text" name="" placeholder="Email Address">
+            </div>
+            <div class="row100">
+              <div class="inputBx100">
+                <textarea placeholder="Massage"></textarea>
+              </div>
+            </div>
+            <div class="row100">
+              <div class="inputBx100">
+                <input type="submit" name="" value="Send">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="sci">
+        <ul>
+          <li><a href="#"><img src="facebook.png" alt="logo"></a></li>
+          <li><a href="#"><img src="twitter.png" alt="logo"></a></li>
+          <li><a href="#"><img src="linkedin.png" alt="logo"></a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copyright">Design & Developed By <a href="FB_IMG_15800482510320605.jpg">FS_15</a></p>
+   </section>
+ 
+ 
+  <script type="text/javascript">
+    window.addEventListener("scroll", function(){
+    var header = document.querySelector("header");
+    header.classList.toggle("sticky", window.scrollY > 0);
+      
+    })
+    </script>
+  
+  
 </body>
 </html>
