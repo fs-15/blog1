@@ -73,7 +73,7 @@
 }
 
 .sticky .logo{
-  background-image: url(../images/black-logo.png);
+  background-image: url "https://raw.githubusercontent.com/fs-15/fs-15.github.io/master/img/bg.jpg";
 }
 
 .sticky .navbar-menu a{
