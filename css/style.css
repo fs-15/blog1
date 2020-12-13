@@ -31,7 +31,7 @@
 .logo{
   width: 44px;
   height: 32px;
-  background-image: url(../images/white-logo.png);
+  background-image: url("https://raw.githubusercontent.com/fs-15/fs-15.github.io/master/img/IMG.jpg");
   background-size: contain;
 }
 
@@ -73,7 +73,7 @@
 }
 
 .sticky .logo{
-  background-image: url(../images/black-logo.png);
+  background-image: url("https://raw.githubusercontent.com/fs-15/fs-15.github.io/master/img/icon1.png");
 }
 
 .sticky .navbar-menu a{
