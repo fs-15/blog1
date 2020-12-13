@@ -31,7 +31,7 @@
 .logo{
   width: 44px;
   height: 32px;
-  background-image: url"https://github.com/fs-15/fs-15.github.io/blob/master/img/bg.jpg";
+  background-image: url "https://github.com/fs-15/fs-15.github.io/blob/master/img/bg.jpg";
   background-size: contain;
 }
 
